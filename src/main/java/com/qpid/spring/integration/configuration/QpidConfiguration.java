@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 
 
 @Configuration
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:jndi.properties")
 public class QpidConfiguration {
 
     @Value("${qpid.provider.url}")

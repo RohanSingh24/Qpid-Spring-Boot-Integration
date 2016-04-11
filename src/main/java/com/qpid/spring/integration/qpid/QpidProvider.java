@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.jms.*;
-import java.util.Map;
 
 @EnableScheduling
 public class QpidProvider {
@@ -22,6 +22,7 @@ public class QpidProvider {
         this.queue = queue;
     }
 
+    @Scheduled(initialDelay = 2000, fixedDelay = 10000)
     public void enqueue() {
 
         Session session = null;
@@ -41,6 +42,7 @@ public class QpidProvider {
         }
     }
 
+    @Scheduled(initialDelay = 4000, fixedDelay = 15000)
     public void dequeue() {
         Session session=null;
         Message message=null;
